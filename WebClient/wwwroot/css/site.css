@@ -1,0 +1,133 @@
+/* ========== RESET & BASE ========== */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 10px;
+    background: #f4f8f5; /* pastel green background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========== HEADER ========== */
+.navbar {
+    background: #3aa66b !important; /* modern green */
+    border-bottom: 3px solid #2f8a58;
+}
+
+.navbar-brand,
+.nav-link,
+.navbar-text {
+    color: white !important;
+    font-weight: 600;
+}
+
+/* ========== PAGE TITLE ========== */
+.page-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 20px 0;
+    color: #2a6d4f; /* dark green */
+}
+
+/* ========== ACTION LINK ========== */
+.create-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #2f8a58;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+    .create-link:hover {
+        text-decoration: underline;
+    }
+
+/* ========== CARD LISTVIEW ========== */
+.order-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    border-left: 6px solid #49b978;
+}
+
+.order-row {
+    margin-bottom: 8px;
+}
+
+.order-label {
+    font-weight: bold;
+    color: #2a6d4f;
+}
+
+.order-value {
+    float: right;
+    color: #333;
+}
+
+/* Clear float */
+.order-card::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* ========== BUTTONS IN CARD ========== */
+.card-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+    .card-actions a {
+        font-weight: 600;
+        color: #2f8a58;
+    }
+
+        .card-actions a:hover {
+            text-decoration: underline;
+        }
+
+/* ========== FORM STYLE (CREATE / EDIT) ========== */
+.form-group label {
+    font-weight: 600;
+    color: #2a6d4f;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #bad9c7;
+    padding: 8px;
+}
+
+button.btn-primary {
+    background: #3aa66b;
+    border-color: #2f8a58;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+    button.btn-primary:hover {
+        background: #2f8a58;
+    }
+
+/* Mobile optimization */
+@media (max-width: 576px) {
+    .order-value {
+        float: none;
+        display: block;
+        margin-top: 3px;
+    }
+}

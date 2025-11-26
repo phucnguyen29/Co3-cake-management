@@ -1,0 +1,108 @@
+﻿@model WebClient.DTOs.ReadProductDTO
+
+<style>
+    .detail-container {
+        padding: 20px;
+    }
+
+    .detail-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        margin-top: 10px;
+    }
+
+    .detail-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2f6e47;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .detail-row {
+        margin-bottom: 14px;
+    }
+
+    .label {
+        font-weight: 600;
+        color: #1d6b3f;
+        font-size: 0.95rem;
+    }
+
+    .value {
+        color: #333;
+        font-size: 1rem;
+        margin-top: 3px;
+        padding-left: 5px;
+    }
+
+    .detail-actions {
+        margin-top: 22px;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .btn-edit {
+        background: #3aa66b;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .btn-back {
+        background: #2a8dbd;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+
+<div class="detail-container">
+
+    <div class="detail-card">
+        <div class="detail-title">Chi Tiết Đơn Đặt Bánh</div>
+
+        <div class="detail-row">
+            <div class="label">Khách hàng:</div>
+            <div class="value">@Model.CustomerName</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Số điện thoại:</div>
+            <div class="value">@Model.PhoneNumber</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Mô tả đơn hàng:</div>
+            <div class="value">@Model.Description</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Địa chỉ giao:</div>
+            <div class="value">@Model.OrderAddress</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Ngày tạo đơn:</div>
+            <div class="value">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Ngày giao:</div>
+            <div class="value">@Model.DeliveryDate.ToString("dd/MM/yyyy HH:mm")</div>
+        </div>
+
+        <div class="detail-actions">
+            <a class="btn-edit" asp-action="Edit" asp-route-id="@Model.Id">Sửa</a>
+            <a class="btn-back" asp-action="Index">Quay lại</a>
+        </div>
+    </div>
+
+</div>

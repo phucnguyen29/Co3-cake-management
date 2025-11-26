@@ -1,0 +1,160 @@
+﻿@model WebClient.DTOs.LoginDTO
+@{
+    Layout = null; /* KHÔNG dùng Layout chung */
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #CFFFD2;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 40px;
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 360px;
+            background: white;
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+            box-sizing: border-box;
+            margin-top: 220px;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2f8a58;
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 12px;
+            border-radius: 12px;
+            border: 1px solid #d5e8dd;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .btn-login {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: #3aa66b;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+            .btn-login:hover {
+                background: #2d7e52;
+            }
+
+        .register-link {
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+            .register-link a {
+                color: #14693e;
+                font-weight: bold;
+            }
+
+        input.form-control {
+            max-width: 100% !important;
+        }
+
+        input, textarea, select {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .logo-box {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo-img {
+            width: 240px;
+            height: 240px;
+            object-fit: contain;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            border: none;
+            box-shadow: none;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-box">
+        <img src="/img/logo.png" class="logo-img" />
+    </div>
+
+    <div class="login-container">
+        <div class="title">Xin Chào!!</div>
+
+        <form asp-action="Login" method="post">
+            <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <input asp-for="Password" type="password" class="form-control" placeholder="Mật khẩu" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <button type="submit" class="btn-login">Đăng Nhập</button>
+        </form>
+
+        <div class="register-link">
+            Bạn chưa có tài khoản?
+            <a asp-controller="Auth" asp-action="Register">Đăng ký</a>
+        </div>
+
+        @if (TempData["Token"] != null)
+        {
+            <script>
+                localStorage.setItem("token", '@TempData["Token"]');
+                window.location.href = "/Products/Index";
+            </script>
+        }
+    </div>
+
+</body>
+</html>

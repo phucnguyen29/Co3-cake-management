@@ -1,0 +1,31 @@
+﻿<h2></h2>
+
+<a asp-action="Create" class="create-btn">+ Tạo Đơn Đặt Bánh</a>
+
+@foreach (var item in Model)
+{
+    <div class="order-card">
+
+        <div class="order-row">
+            <span class="order-label">Khách hàng:</span>
+            <span class="order-value">@item.CustomerName</span>
+        </div>
+
+        <div class="order-row">
+            <span class="order-label">Số điện thoại:</span>
+            <span class="order-value">@item.PhoneNumber</span>
+        </div>
+
+        <div class="order-row">
+            <span class="order-label">Mô tả:</span>
+            <span class="order-value">@item.Description</span>
+        </div>
+
+        <div class="card-actions">
+            <a class="btn-edit" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+            <a class="btn-details" asp-action="Details" asp-route-id="@item.Id">Chi tiết</a>
+            <a class="btn-delete" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+        </div>
+
+    </div>
+}

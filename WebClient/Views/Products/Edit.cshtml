@@ -1,0 +1,115 @@
+﻿@model WebClient.DTOs.ReadProductDTO
+@{
+    ViewData["Title"] = "Chỉnh Sửa Đơn";
+}
+
+<style>
+    .form-wrapper {
+        background: white;
+        width: 100%;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        max-width: 400px;
+        margin: auto;
+        border-left: 6px solid #3aa66b;
+        box-sizing: border-box;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2f8a58;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #2f8a58;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid #c8dfc6;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    .btn-submit {
+        width: 100%;
+        background: #2f8a58;
+        color: white;
+        padding: 12px;
+        border-radius: 12px;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+        .btn-submit:hover {
+            background: #2f8a58;
+        }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 12px;
+        font-weight: 600;
+        color: #2f8a58;
+        text-decoration: none;
+    }
+</style>
+
+<div class="form-wrapper">
+
+    <div class="form-title">Chỉnh Sửa Đơn Đặt Bánh</div>
+
+    <form asp-action="Edit">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label class="form-label">Tên khách hàng</label>
+            <input asp-for="CustomerName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Số điện thoại</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Mô tả</label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Địa chỉ giao</label>
+            <input asp-for="OrderAddress" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Ngày tạo</label>
+            <input asp-for="CreatedAt" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Ngày giao</label>
+            <input asp-for="DeliveryDate" type="datetime-local" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn-submit">Lưu Thay Đổi</button>
+    </form>
+
+    <a asp-action="Index" class="back-link">← Quay lại danh sách</a>
+</div>

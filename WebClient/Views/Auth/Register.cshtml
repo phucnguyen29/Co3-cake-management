@@ -1,0 +1,166 @@
+﻿@model WebClient.DTOs.RegisterDTO
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #CFFFD2;
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 40px;
+        }
+
+        .register-container {
+            width: 90%;
+            max-width: 360px;
+            background: white;
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+            box-sizing: border-box;
+            margin-top: 220px;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2f8a58;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 12px;
+            border-radius: 12px;
+            border: 1px solid #d5e8dd;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input.form-control {
+            max-width: 100% !important;
+        }
+
+        input, textarea, select {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .btn-register {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: #3aa66b;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+            .btn-register:hover {
+                background: #2f8a58;
+            }
+
+        .login-link {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+            .login-link a {
+                font-weight: bold;
+                color: #14693e;
+            }
+
+        .logo-box {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo-img {
+            width: 240px;
+            height: 240px;
+            object-fit: contain;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            border: none;
+            box-shadow: none;
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo-box">
+        <img src="/img/logo.png" class="logo-img" />
+    </div>
+
+    <div class="register-container">
+        <div class="title">Create an Account</div>
+
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="Fullname" class="form-control" placeholder="Họ và tên" />
+            <span asp-validation-for="Fullname" class="text-danger"></span>
+
+            <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <input asp-for="Email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <input asp-for="PhoneNumber" class="form-control" placeholder="Số điện thoại" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+            <input asp-for="Password" type="password" class="form-control" placeholder="Mật khẩu" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <button type="submit" class="btn-register">Đăng Ký</button>
+        </form>
+
+        <div class="login-link">
+            Bạn đã có tài khoản?
+            <a asp-controller="Auth" asp-action="Login">Đăng nhập</a>
+        </div>
+    </div>
+
+</body>
+</html>
