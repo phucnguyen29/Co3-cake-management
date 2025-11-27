@@ -44,11 +44,12 @@ app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
-app.MapGet("/ping", () => "OK");
 
+app.UseHttpsRedirection();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Products}/{action=Index}/{id?}");
 
+app.MapGet("/ping", () => "OK");
 app.Run();
