@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  authapi:
+    build:
+      context: ./AuthAPI
+    ports:
+      - "5001:10000"
+
+  webapi:
+    build:
+      context: ./WebAPI
+    ports:
+      - "5002:10000"
+
+  webclient:
+    build:
+      context: ./WebClient
+    ports:
+      - "5000:10000"
