@@ -9,7 +9,7 @@ namespace WebClient.Services
     {
         private readonly HttpClient _httpClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private const string ApiUrl = "https://localhost:7147/api/Products";
+        private const string ApiUrl = "https://co3-webapi.onrender.com/api/Products";
 
         public ProductService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
