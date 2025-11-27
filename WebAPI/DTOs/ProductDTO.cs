@@ -7,10 +7,10 @@
         public string PhoneNumber { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string? OrderAddress { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
         public DateTime DeliveryDate { get; set; }
         public bool IsDeleted { get; set; } = false;
-        public DateTime DeletedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 
     public class CreateProductDTO
@@ -19,7 +19,6 @@
         public string PhoneNumber { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string? OrderAddress { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime DeliveryDate { get; set; }
     }
 
@@ -29,7 +28,6 @@
         public string PhoneNumber { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string? OrderAddress { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime DeliveryDate { get; set; }
     }
 }

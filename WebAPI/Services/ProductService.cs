@@ -38,6 +38,8 @@ namespace WebAPI.Services
         {
             var newProducts = _mapper.Map<Products>(dto);
             newProducts.Id = Guid.NewGuid();
+            newProducts.CreatedAt = DateTime.UtcNow;
+            newProducts.DeliveryDate = DateTime.SpecifyKind(dto.DeliveryDate, DateTimeKind.Utc);
             await _repo.AddAsync(newProducts);
             return _mapper.Map<ReadProductDTO>(newProducts);
         }
