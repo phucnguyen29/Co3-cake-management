@@ -11,8 +11,6 @@ namespace WebClient.DTOs
         public string? OrderAddress { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime DeliveryDate { get; set; }
-        public bool IsDeleted { get; set; } = false;
-        public DateTime DeletedAt { get; set; }
     }
 
     public class CreateProductDTO
@@ -21,7 +19,6 @@ namespace WebClient.DTOs
         public string PhoneNumber { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string? OrderAddress { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime DeliveryDate { get; set; }
     }
 
@@ -31,7 +28,6 @@ namespace WebClient.DTOs
         public string PhoneNumber { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string? OrderAddress { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime DeliveryDate { get; set; }
     }
 }

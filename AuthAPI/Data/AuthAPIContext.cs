@@ -15,5 +15,6 @@ namespace AuthAPI.Data
         }
 
         public DbSet<AuthAPI.Models.User> User { get; set; } = default!;
+
     }
 }

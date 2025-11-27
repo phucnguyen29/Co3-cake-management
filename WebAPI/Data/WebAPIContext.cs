@@ -15,5 +15,6 @@ namespace WebAPI.Data
         }
 
         public DbSet<WebAPI.Models.Products> Products { get; set; } = default!;
+
     }
 }

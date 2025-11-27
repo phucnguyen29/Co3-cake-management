@@ -1,17 +1,21 @@
 ﻿using AuthAPI.Data;
 using AuthAPI.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using System.Text;
 using WebAPI.Repositories.Interfaces;
 using WebAPI.Services;
 using WebAPI.Services.Interfaces;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AuthAPIContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("AuthAPIContext") ?? throw new InvalidOperationException("Connection string 'AuthAPIContext' not found.")));
+
 
 builder.Services.AddCors(options =>
 {
@@ -20,6 +24,13 @@ builder.Services.AddCors(options =>
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
+
+var keysFolder = Path.Combine(Directory.GetCurrentDirectory(), "Keys");
+
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(keysFolder))
+    .SetApplicationName("MyAuthAPI");
+
 
 // Add services to the container.
 builder.Services.AddAuthentication(options =>
