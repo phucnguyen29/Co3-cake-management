@@ -11,7 +11,7 @@ using WebAPI.Services.Interfaces;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AuthAPIContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'AuthAPIContext' not found.")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AuthAPIContext") ?? throw new InvalidOperationException("Connection string 'AuthAPIContext' not found.")));
 
 builder.Services.AddCors(options =>
 {
