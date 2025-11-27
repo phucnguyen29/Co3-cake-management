@@ -13,7 +13,7 @@ namespace WebClient.Service
         public AuthService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
             _httpClient = httpClient;
-            _httpClient.BaseAddress = new Uri("https://localhost:7193/api/Auth/");
+            _httpClient.BaseAddress = new Uri("https://co3-authapi.onrender.com");
             _httpContextAccessor = httpContextAccessor;
         }
 
@@ -81,7 +81,7 @@ namespace WebClient.Service
             var json = JsonSerializer.Serialize(dto);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("https://localhost:7193/api/auth/register", content);
+            var response = await _httpClient.PostAsync("https://co3-authapi.onrender.com", content);
             if (!response.IsSuccessStatusCode)
             {
                 var msg = await response.Content.ReadAsStringAsync();
