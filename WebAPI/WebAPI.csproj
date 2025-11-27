@@ -21,11 +21,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
 
-    <!-- ❌ Bỏ SQL Server vì bạn không dùng nữa -->
-    <!-- <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10" /> -->
-
     <!-- PostgreSQL Provider phiên bản đúng -->
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
 
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
