@@ -7,7 +7,7 @@ using WebAPI.Services;
 using WebAPI.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebAPIContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'WebAPIContext' not found.")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'WebAPIContext' not found.")));
 
 builder.Services.AddCors(options =>
 {
