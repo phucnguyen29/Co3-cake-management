@@ -44,6 +44,8 @@ app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapGet("/ping", () => "OK");
+
 
 app.MapControllerRoute(
     name: "default",
