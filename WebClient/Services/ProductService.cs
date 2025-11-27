@@ -53,12 +53,14 @@ namespace WebClient.Services
         public async Task CreateAsync(CreateProductDTO dto)
         {
             AddJwtHeader();
+            dto.DeliveryDate = DateTime.SpecifyKind(dto.DeliveryDate, DateTimeKind.Utc);
             await _httpClient.PostAsJsonAsync(ApiUrl, dto);
         }
 
         public async Task UpdateAsync(Guid id, UpdateProductDTO dto)
         {
             AddJwtHeader();
+            dto.DeliveryDate = DateTime.SpecifyKind(dto.DeliveryDate, DateTimeKind.Utc);
             await _httpClient.PutAsJsonAsync($"{ApiUrl}/{id}", dto);
         }
 
