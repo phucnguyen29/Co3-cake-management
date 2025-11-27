@@ -37,18 +37,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapGet("/ping", () => "OK");
 
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<WebAPIContext>();
     db.Database.Migrate();
 }
+app.MapGet("/ping", () => "OK");
 app.Run();
